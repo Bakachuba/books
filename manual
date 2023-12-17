@@ -1,0 +1,30 @@
+Для пользователей Windows:
+Через SQL Shell (psql) (Утилита для работы с BD ставится вместе с PostgreSQL) создаете юзера и базу данных, юзеру обязательно задаете пароль. ->
+Создаем юзера:
+postgres=# CREATE USER books_user WITH PASSWORD ‘password’;
+Создаем БД:
+postgres=# CREATE DATABASE books_db WITH OWNER books_user;
+В файле settings
+DATABASES = {
+   	'default': {
+       		'ENGINE': 'django.db.backends.postgresql_psycopg2',
+       		 'NAME': 'books_db',
+       		 'USER': 'books_user',
+       		 'PASSWORD': 'password',
+      		 'HOST': 'localhost',
+       		 'PORT': '',
+   	}
+}
+
+python ./manage.py migrate    - если есть миграция, значит бд подключена нормально
+python ./manage.py createsuperuser - создание админки
+
+
+                    unittests
+python ./manage.py test store.tests - запуск тестов из папки тестс
+
+coverage run --source='.' ./manage.py test .  - все ли тесты прошли
+
+coverage report - какие файлы насколько прокрыты тесты
+
+coverage html - report  в браузере
