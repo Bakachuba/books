@@ -34,3 +34,5 @@ authenticity - проверка подлинности пользователя,
 
 authorization - сначала authenticity(логиним) потом разрешаем или запрещаем  доступ к определенным endpointам
 пример: {"detail":"Authentication credentials were not provided."}
+
+        ctrl + space - автозаполнение

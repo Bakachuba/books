@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from rest_framework.routers import SimpleRouter
-from django.urls import path, include  # Add the necessary import
+from django.urls import path, include, re_path  # Add the necessary import
 
 from store.views import BookViewSet, auth
 
@@ -26,7 +26,7 @@ router.register(r'book', BookViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('social_django.urls', namespace='social')),
+    re_path('', include('social_django.urls', namespace='social')),
     path('auth/', auth)
 ]
 
