@@ -1,1 +1,3 @@
-django_app with oauth 
+django_app with 
+oauth 
+unit tests
